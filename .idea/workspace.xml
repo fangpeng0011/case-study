@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5137b04f-932e-4d4c-b1f5-9a990371951b" name="更改" comment="初始化">
-      <change afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/cast/springbootelasticsearch/entity/Goods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/cast/springbootelasticsearch/entity/SearchAttr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/cast/springbootelasticsearch/repository/GoodsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/cast/springbootelasticsearch/service/GoodsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/cast/springbootelasticsearch/service/impl/GoodsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/test/java/com/cast/springbootelasticsearch/SpringbootElasticsearchApplicationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-elasticsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-elasticsearch/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/cast/springbootelasticsearch/service/impl/GoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/main/java/com/cast/springbootelasticsearch/service/impl/GoodsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-elasticsearch/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-elasticsearch/src/test/java/com/cast/springbootelasticsearch/SpringbootElasticsearchApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-elasticsearch/src/test/java/com/cast/springbootelasticsearch/SpringbootElasticsearchApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-elasticsearch/src/test/java/com/cast/springbootelasticsearch/SpringbootElasticsearchApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,40 +54,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.GoodsServiceImplTest.saveGoods.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.GoodsServiceImplTest.selectByName.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.SpringbootElasticsearchApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SpringbootElasticsearchApplicationTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SpringbootElasticsearchApplicationTests.saveGoods.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.SpringbootElasticsearchApplicationTests.selectGoods.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SpringbootElasticsearchApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.GoodsServiceImplTest.saveGoods.executor": "Debug",
+    "JUnit.GoodsServiceImplTest.selectByName.executor": "Debug",
+    "JUnit.SpringbootElasticsearchApplicationTest.saveGoodsList.executor": "Debug",
+    "JUnit.SpringbootElasticsearchApplicationTests.contextLoads.executor": "Run",
+    "JUnit.SpringbootElasticsearchApplicationTests.executor": "Debug",
+    "JUnit.SpringbootElasticsearchApplicationTests.saveGoods.executor": "Debug",
+    "JUnit.SpringbootElasticsearchApplicationTests.selectGoods.executor": "Debug",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.springboot-elasticsearch [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.SpringbootElasticsearchApplication.executor": "Debug",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.cast.springbootelasticsearch.service.impl" />
@@ -100,10 +99,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.cast.springbootelasticsearch" />
       <recent name="com.cast.springbootelasticsearch.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SpringbootElasticsearchApplicationTests.selectGoods">
+  <component name="RunManager" selected="JUnit.SpringbootElasticsearchApplicationTest.saveGoodsList">
     <configuration name="GoodsServiceImplTest.saveGoods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springboot-elasticsearch" />
       <extension name="coverage">
@@ -120,6 +120,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SpringbootElasticsearchApplicationTest.saveGoodsList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot-elasticsearch" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cast.springbootelasticsearch.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cast.springbootelasticsearch" />
+      <option name="MAIN_CLASS_NAME" value="com.cast.springbootelasticsearch.SpringbootElasticsearchApplicationTest" />
+      <option name="METHOD_NAME" value="saveGoodsList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringbootElasticsearchApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springboot-elasticsearch" />
       <extension name="coverage">
@@ -131,22 +147,6 @@
       <option name="PACKAGE_NAME" value="com.cast.springbootelasticsearch" />
       <option name="MAIN_CLASS_NAME" value="com.cast.springbootelasticsearch.SpringbootElasticsearchApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpringbootElasticsearchApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot-elasticsearch" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cast.springbootelasticsearch.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cast.springbootelasticsearch" />
-      <option name="MAIN_CLASS_NAME" value="com.cast.springbootelasticsearch.SpringbootElasticsearchApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -194,17 +194,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SpringbootElasticsearchApplicationTests.selectGoods" />
-        <item itemvalue="JUnit.SpringbootElasticsearchApplicationTests.saveGoods" />
-        <item itemvalue="JUnit.GoodsServiceImplTest.saveGoods" />
+        <item itemvalue="JUnit.SpringbootElasticsearchApplicationTest.saveGoodsList" />
         <item itemvalue="JUnit.SpringbootElasticsearchApplicationTests" />
-        <item itemvalue="JUnit.SpringbootElasticsearchApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.SpringbootElasticsearchApplicationTests.saveGoods" />
+        <item itemvalue="JUnit.SpringbootElasticsearchApplicationTests.selectGoods" />
+        <item itemvalue="JUnit.GoodsServiceImplTest.saveGoods" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-1.8.0_392-corretto-1.8.0_392-3183f394aec4-cb300fc7" />
         <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
         <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
       </set>
@@ -228,7 +229,8 @@
       <workItem from="1703297999383" duration="4661000" />
       <workItem from="1703417693986" duration="56000" />
       <workItem from="1703418007423" duration="1836000" />
-      <workItem from="1703468315906" duration="310000" />
+      <workItem from="1703468315906" duration="329000" />
+      <workItem from="1703494318818" duration="2773000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <option name="closed" value="true" />
@@ -246,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702952844045</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="初始化">
+      <option name="closed" value="true" />
+      <created>1703468636139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703468636139</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
