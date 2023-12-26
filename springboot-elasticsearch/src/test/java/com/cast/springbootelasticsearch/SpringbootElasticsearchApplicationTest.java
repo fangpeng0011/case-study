@@ -16,5 +16,6 @@ class SpringbootElasticsearchApplicationTest {
     @Test
     void saveGoodsList(){
         goodsService.saveGoods();
+
     }
 }
