@@ -12,7 +12,6 @@ class SpringbootElasticsearchApplicationTest {
     @Autowired
     GoodsService goodsService;
 
-
     @Test
     void saveGoodsList(){
         goodsService.saveGoods();
