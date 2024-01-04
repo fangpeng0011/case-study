@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5137b04f-932e-4d4c-b1f5-9a990371951b" name="更改" comment="初始化">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/assets/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/assets/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/TheWelcome.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/WelcomeItem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/icons/IconCommunity.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/icons/IconDocumentation.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/icons/IconEcosystem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/icons/IconSupport.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/components/icons/IconTooling.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-vue/vite.config.js" beforeDir="false" />
-    </list>
+    <list default="true" id="5137b04f-932e-4d4c-b1f5-9a990371951b" name="更改" comment="初始化" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +81,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "MavenSettings",
-    "ts.external.directory.path": "D:\\IntelliJ IDEA 2023.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "D:\\Repository\\case-study\\case-vue3\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -254,7 +231,7 @@
       <workItem from="1703836201745" duration="169000" />
       <workItem from="1704351047209" duration="562000" />
       <workItem from="1704351923667" duration="1428000" />
-      <workItem from="1704355252927" duration="297000" />
+      <workItem from="1704355252927" duration="1107000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <option name="closed" value="true" />
@@ -296,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704352323220</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="初始化">
+      <option name="closed" value="true" />
+      <created>1704356351612</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704356351612</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
