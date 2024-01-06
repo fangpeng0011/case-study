@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <title>初始Vue</title>
+    <!--引入Vue.js-->
+    <script type="text/javascript" src="./vue.js"></script>
+  </head>
+  <body>
+    <!--容器-->
+    <div id="root"> 
+      <!--
+          MVVM模型
+                1. M：模型(Model) ：data中的数据
+                2. V：视图(View) ：模板代码
+                3. VM：视图模型(ViewModel)：Vue实例
+          观察发现：
+                1.data中所有的属性，最后都出现在了vm身上。
+                2.vm身上所有的属性 及 Vue原型上所有属性，在Vue模板中都可以直接使用。
+		  -->
+     <input v-model="name"></input></br>
+     <input :value="name"></input>
+    </div>
+  </body>
+  <script>
+       let number = 18;
+
+      let data = {
+        name: '张三',
+           sex:'男'      }  
+
+      Object.defineProperty(data,'age',{
+
+        // enumerable: true, //此时代表这个属性是可以枚举的
+        // writable: true, //代表可以重写该属性(控制属性是否被修改)
+        // configurable:true, //控制属性是否可以被删除 默认为false
+        //invoke property proxy映射数据代理
+        get(){
+          return number
+        },
+        //当修改age属性时set(setter)属性就会被调用，且会收到修改的具体值
+        set(v){
+          number = v
+        }
+      })
+
+      const vm = new Vue({
+        //data中用于存储数据，数据供el所指定的容器去使用，暂时为一个对象
+        data:data
+      })
+      vm.$mount('#root')
+  </script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <title>初始Vue</title>
+    <!--引入Vue.js-->
+    <script type="text/javascript" src="./vue.js"></script>
+  </head>
+  <body>
+    <!--容器-->
+    <div id="root"> 
+      <h1>Hello Word，{{name}}</h1>
+    </div>
+  </body>
+  <script>
+      //创建Vue实例
+      new Vue({
+        //element   el用于指定当前Vue实例为那个容器服务，值同很长为css选择器字符串
+        el:"#root", 
+        //data中用于存储数据，数据供el所指定的容器去使用，暂时为一个对象
+        data:{
+          name:"Vue"
+        }
+      })
+  </script>
+</html>

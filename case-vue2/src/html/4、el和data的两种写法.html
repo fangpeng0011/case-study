@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <title>初始Vue</title>
+    <!--引入Vue.js-->
+    <script type="text/javascript" src="./vue.js"></script>
+  </head>
+  <body>
+    <!--容器-->
+    <div id="root"> 
+
+  <!--
+        data与el的2种写法
+            1.el有2种写法
+                    (1).new Vue时候配置el属性。
+                    (2).先创建Vue实例，随后再通过vm.$mount('#root')指定el的值。
+            2.data有2种写法
+                    (1).对象式
+                    (2).函数式
+                    如何选择：目前哪种写法都可以，以后学习到组件时，data必须使用函数式，否则会报错。
+            3.一个重要的原则：
+                    由Vue管理的函数(例如data)，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了。
+      -->
+     <input v-model="name"></input></br>
+     <input :value="name"></input>
+    </div>
+  </body>
+  <script>
+      //创建Vue实例
+      // new Vue({
+      //   //element   el用于指定当前Vue实例为那个容器服务，值同很长为css选择器字符串
+      //   el:"#root", 
+      //   //data中用于存储数据，数据供el所指定的容器去使用，暂时为一个对象
+      //   data:{
+      //     name:"https://cn.vuejs.org/"
+      //   }
+      // })
+
+      const vm = new Vue(
+        {
+        //data中用于存储数据，数据供el所指定的容器去使用，暂时为一个对象
+        data:{
+          name:"https://cn.vuejs.org/"
+        }
+      }
+      )
+      vm.$mount('#root')
+  </script>
+</html>

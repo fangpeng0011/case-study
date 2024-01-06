@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <title>初始Vue</title>
+    <!--引入Vue.js-->
+    <script type="text/javascript" src="./vue.js"></script>
+  </head>
+  <body>
+  </body>
+  <script>
+      //数据代理，通过一个对象代理另一个对象中属性的操作
+      let object1 = {
+        x:100
+      }
+      let object2 = {
+        y:200
+      }
+
+      Object.defineProperty(object1,'y',{
+        get(){
+          return object2.y
+        },
+        set(v){
+          object2.y = v          
+        }
+      })
+  </script>
+</html>

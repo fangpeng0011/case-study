@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <title>初始Vue</title>
+    <!--引入Vue.js-->
+    <script type="text/javascript" src="./vue.js"></script>
+  </head>
+  <body>
+    <!--容器-->
+    <div id="root">
+      <!--
+        事件的基本使用:
+          1. 使用v-on:xxx 或者@xxx绑定事件,其中xxx是事件名称
+          2时间的回调需要配置在methods对象中
+          3.methods中配置的函数,不要用箭头函数,否为this不再为Vue实例
+          4.methods中配置的函数,都是被Vue所管理的函数,this的只想是vm或组件实例对象
+          5.@click="demo"和@click="demo($event)"效果一致
+      --> 
+      <button v-on:click="showInfo">点我提示</button>
+    </div>
+  </body>
+  <script>
+      const vm = new Vue(
+        {
+        //data中用于存储数据，数据供el所指定的容器去使用，暂时为一个对象
+        data:{
+          name:"https://cn.vuejs.org/"
+        },
+        //
+        methods: {
+          showInfo(event){
+            console.log(event.target)
+            //this其实就是Vue实例对象
+            console.log(this)
+            alert('Hello')
+          }
+        },  
+      }
+      )
+      vm.$mount('#root')
+
+
+  </script>
+</html>
