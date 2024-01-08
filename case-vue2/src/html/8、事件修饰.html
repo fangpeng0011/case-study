@@ -2,21 +2,22 @@
 <html>
   <head>
     <meta charset="UTF-8"></meta>
-    <title>7、事件处理</title>
+    <title>8、事件修饰</title>
     <!--引入Vue.js-->
     <script type="text/javascript" src="./vue.js"></script>
   </head>
   <body>
     <!--容器-->
     <div id="root">
-      <!--
-        事件的基本使用:
-          1. 使用v-on:xxx 或者@xxx绑定事件,其中xxx是事件名称
-          2时间的回调需要配置在methods对象中
-          3.methods中配置的函数,不要用箭头函数,否为this不再为Vue实例
-          4.methods中配置的函数,都是被Vue所管理的函数,this的只想是vm或组件实例对象
-          5.@click="demo"和@click="demo($event)"效果一致
-      --> 
+         <!--
+            Vue中的事件修饰符：
+                1.prevent：阻止默认事件（常用）；
+                2.stop：阻止事件冒泡（常用）；
+                3.once：事件只触发一次（常用）；
+                4.capture：使用事件的捕获模式；
+                5.self：只有event.target是当前操作的元素时才触发事件；
+                6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕；
+		      -->
       <button v-on:click="showInfo">点我提示</button>
     </div>
   </body>
@@ -30,9 +31,6 @@
         //
         methods: {
           showInfo(event){
-            console.log(event.target)
-            //this其实就是Vue实例对象
-            console.log(this)
             alert('Hello')
           }
         },  
