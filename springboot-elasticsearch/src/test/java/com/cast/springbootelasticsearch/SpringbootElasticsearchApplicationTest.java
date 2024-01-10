@@ -23,6 +23,7 @@ import org.elasticsearch.index.query.MatchAllQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.sort.GeoDistanceSortBuilder;
 import org.elasticsearch.search.sort.SortBuilder;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
@@ -52,16 +53,14 @@ class SpringbootElasticsearchApplicationTest {
     void saveGoodsList() throws IOException {
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY,
-                new UsernamePasswordCredentials("elastic", "changeme"));  //es账号密码（默认用户名为elastic）
-        RestHighLevelClient client = new RestHighLevelClient(
-                RestClient.builder(
-                                new HttpHost("localhost", 9200, "http"))
-                        .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
-                            public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
-                                httpClientBuilder.disableAuthCaching();
-                                return httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
-                            }
-                        }));
+            new UsernamePasswordCredentials("elastic", "changeme"));  //es账号密码（默认用户名为elastic）
+        RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost", 9200, "http"))
+            .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
+                public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
+                    httpClientBuilder.disableAuthCaching();
+                    return httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+                }
+            }));
 
         // 批量查询酒店数据
         List<Hotel> hotels = hotelService.list();
@@ -72,11 +71,8 @@ class SpringbootElasticsearchApplicationTest {
             // 2.1.转换为文档类型HotelDoc
             HotelDoc hotelDoc = new HotelDoc(hotel);
             // 2.2.创建新增文档的Request对象
-            request.add(new IndexRequest("hotel")
-                    .id(hotelDoc.getId().toString())
-                    .source(
-                            JSON.toJSONString(hotelDoc), XContentType.JSON)
-            );
+            request.add(new IndexRequest("hotel").id(hotelDoc.getId().toString())
+                .source(JSON.toJSONString(hotelDoc), XContentType.JSON));
         }
         // 3.发送请求
         client.bulk(request, RequestOptions.DEFAULT);
@@ -95,9 +91,7 @@ class SpringbootElasticsearchApplicationTest {
 
     @Test
     void mulitMatchQuery() {
-        NativeSearchQuery query = new NativeSearchQuery(QueryBuilders.multiMatchQuery(
-                "如家", "name", "brand"
-        ));
+        NativeSearchQuery query = new NativeSearchQuery(QueryBuilders.multiMatchQuery("如家", "name", "brand"));
         SearchHits<Hotel> search = elasticsearchRestTemplate.search(query, Hotel.class);
         List<SearchHit<Hotel>> searchHits = search.getSearchHits();
         for (SearchHit<Hotel> searchHit : searchHits) {
@@ -108,9 +102,7 @@ class SpringbootElasticsearchApplicationTest {
 
     @Test
     void termQuery() {
-        NativeSearchQuery nativeSearchQuery = new NativeSearchQuery(
-                QueryBuilders.termQuery("city", "上海")
-        );
+        NativeSearchQuery nativeSearchQuery = new NativeSearchQuery(QueryBuilders.termQuery("city", "上海"));
         SearchHits<Hotel> search = elasticsearchRestTemplate.search(nativeSearchQuery, Hotel.class);
         List<SearchHit<Hotel>> searchHits = search.getSearchHits();
         for (SearchHit<Hotel> searchHit : searchHits) {
@@ -136,24 +128,14 @@ class SpringbootElasticsearchApplicationTest {
     @Test
     void boolQuery() {
         GeoDistanceQueryBuilder location = new GeoDistanceQueryBuilder("location");
-
         //经纬度坐标
         location.point(31.034661, 121.612282);
-
         location.distance(10, DistanceUnit.KILOMETERS);
-
-        NativeSearchQuery query = new NativeSearchQueryBuilder()
-                .withQuery(
-                        QueryBuilders.boolQuery()
-                                .must(QueryBuilders.matchQuery("name", "如家"))
-                                .mustNot(QueryBuilders.rangeQuery("price").gt(Integer.valueOf(10000)))
-                                .filter(location)
-                        )
-                        .withSort(SortBuilders.fieldSort("price").order(SortOrder.ASC))
-                        .withHighlightFields(
-                                new HighlightBuilder.Field("name"),
-                                new HighlightBuilder.Field("price")
-                        ).build();
+        NativeSearchQuery query = new NativeSearchQueryBuilder().withQuery(
+                QueryBuilders.boolQuery().must(QueryBuilders.matchQuery("name", "如家"))
+                    .mustNot(QueryBuilders.rangeQuery("price").gt(Integer.valueOf(10000))).filter(location))
+            .withSort(SortBuilders.fieldSort("price").order(SortOrder.ASC))
+            .withHighlightFields(new HighlightBuilder.Field("name"), new HighlightBuilder.Field("price")).build();
         SearchHits<Hotel> search = elasticsearchRestTemplate.search(query, Hotel.class);
         List<SearchHit<Hotel>> searchHits = search.getSearchHits();
         for (SearchHit<Hotel> searchHit : searchHits) {
@@ -164,25 +146,14 @@ class SpringbootElasticsearchApplicationTest {
 
 
     /**
-     * 案例需求：实现黑马旅游的酒店搜索功能，完成关键字搜索和分页
-     * - 请求参数：JSON对象，包含4个字段：
-     *   - key：搜索关键字
-     *   - page：页码
-     *   - size：每页大小
-     *   - sortBy：排序，目前暂不实现
-     * - 返回值：分页查询，需要返回分页结果PageResult，包含两个属性：
-     *   - `total`：总条数
-     *   - `List<HotelDoc>`：当前页的数据
+     * 案例需求：实现黑马旅游的酒店搜索功能，完成关键字搜索和分页 - 请求参数：JSON对象，包含4个字段： - key：搜索关键字 - page：页码 - size：每页大小 - sortBy：排序，目前暂不实现 -
+     * 返回值：分页查询，需要返回分页结果PageResult，包含两个属性： - `total`：总条数 - `List<HotelDoc>`：当前页的数据
      */
     @Test
-    void queryOneCase(){
-        NativeSearchQuery query = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.boolQuery().must(
-                        QueryBuilders.matchQuery("all","如家")
-                ))
-                .withPageable(PageRequest.of(1,20))
-                .withSort(SortBuilders.fieldSort("price").order(SortOrder.ASC))
-                .build();
+    void queryOneCase() {
+        NativeSearchQuery query = new NativeSearchQueryBuilder().withQuery(
+                QueryBuilders.boolQuery().must(QueryBuilders.matchQuery("all", "如家"))).withPageable(PageRequest.of(1, 20))
+            .withSort(SortBuilders.fieldSort("price").order(SortOrder.ASC)).build();
         SearchHits<Hotel> search = elasticsearchRestTemplate.search(query, Hotel.class);
         List<SearchHit<Hotel>> searchHits = search.getSearchHits();
         for (SearchHit<Hotel> searchHit : searchHits) {
@@ -192,27 +163,16 @@ class SpringbootElasticsearchApplicationTest {
     }
 
     /**
-     * 案例需求：实现黑马旅游的酒店搜索功能，完成关键字搜索和分页
-     * 在页面搜索框下面，会有一些过滤项：
-     *  包含的过滤条件有：
-     * - brand：品牌值
-     * - city：城市
-     * - minPrice~maxPrice：价格范围
-     * - starName：星级
+     * 需求：添加品牌、城市、星级、价格等过滤功能
      */
     @Test
-    void queryTwoCase(){
-        NativeSearchQuery query = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.boolQuery().must(
-                        QueryBuilders.matchQuery("all","如家")
-                ))
-                .withFilter(QueryBuilders.termQuery("city", "上海"))
-                .withFilter(QueryBuilders.termQuery("brand", "速8"))
-                .withFilter(QueryBuilders.termQuery("starName", "二钻"))
-                .withFilter(QueryBuilders.rangeQuery("price").gte(100).lte(1000))
-                .withPageable(PageRequest.of(1,20))
-                .withSort(SortBuilders.fieldSort("price").order(SortOrder.ASC))
-                .build();
+    void queryTwoCase() {
+        NativeSearchQuery query = new NativeSearchQueryBuilder().withQuery(
+                QueryBuilders.boolQuery().must(QueryBuilders.matchQuery("all", "如家")))
+            .withFilter(QueryBuilders.termQuery("city", "上海")).withFilter(QueryBuilders.termQuery("brand", "如家"))
+            .withFilter(QueryBuilders.termQuery("starName", "二钻"))
+            .withFilter(QueryBuilders.rangeQuery("price").gte(100).lte(1000)).withPageable(PageRequest.of(1, 20))
+            .withSort(SortBuilders.fieldSort("price").order(SortOrder.ASC)).build();
         SearchHits<Hotel> search = elasticsearchRestTemplate.search(query, Hotel.class);
         List<SearchHit<Hotel>> searchHits = search.getSearchHits();
         for (SearchHit<Hotel> searchHit : searchHits) {
@@ -221,6 +181,24 @@ class SpringbootElasticsearchApplicationTest {
         }
     }
 
-
+    /**
+     * 我周边的酒店
+     *      需求：我附近的酒店
+     */
+    @Test
+    void queryThreeCase() {
+        GeoDistanceQueryBuilder distanceQueryBuilder = new GeoDistanceQueryBuilder("location");
+        distanceQueryBuilder.point(31.034661, 121.612282);
+        distanceQueryBuilder.distance(10, DistanceUnit.KILOMETERS);
+        GeoDistanceSortBuilder distanceSortBuilder = new GeoDistanceSortBuilder("location", 31.034661, 121.612282);
+        NativeSearchQuery query = new NativeSearchQueryBuilder().withFilter(distanceQueryBuilder)
+            .withSort(distanceSortBuilder.order(SortOrder.ASC)).build();
+        SearchHits<Hotel> search = elasticsearchRestTemplate.search(query, Hotel.class);
+        List<SearchHit<Hotel>> searchHits = search.getSearchHits();
+        for (SearchHit<Hotel> searchHit : searchHits) {
+            Hotel content = searchHit.getContent();
+            System.out.println(content);
+        }
+    }
 
 }
