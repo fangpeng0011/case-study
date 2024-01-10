@@ -1,4 +1,4 @@
-package com.cast.springbootelasticsearch.entity;
+package com.project.springbootelasticsearch.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

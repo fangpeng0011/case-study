@@ -1,11 +1,10 @@
-package com.cast.springbootelasticsearch.service.impl;
+package com.project.springbootelasticsearch.service.impl;
 
-import com.cast.springbootelasticsearch.entity.Goods;
-import com.cast.springbootelasticsearch.repository.GoodsRepository;
-import com.cast.springbootelasticsearch.service.GoodsService;
+import com.project.springbootelasticsearch.entity.Goods;
+import com.project.springbootelasticsearch.repository.GoodsRepository;
+import com.project.springbootelasticsearch.service.GoodsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

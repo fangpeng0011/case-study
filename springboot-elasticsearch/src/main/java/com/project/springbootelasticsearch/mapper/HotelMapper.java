@@ -1,8 +1,8 @@
-package com.cast.springbootelasticsearch.mapper;
+package com.project.springbootelasticsearch.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cast.springbootelasticsearch.entity.Hotel;
+import com.project.springbootelasticsearch.entity.Hotel;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

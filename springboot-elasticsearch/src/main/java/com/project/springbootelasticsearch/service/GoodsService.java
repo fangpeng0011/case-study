@@ -1,7 +1,7 @@
-package com.cast.springbootelasticsearch.service;
+package com.project.springbootelasticsearch.service;
 
 
-import com.cast.springbootelasticsearch.entity.Goods;
+import com.project.springbootelasticsearch.entity.Goods;
 
 import java.util.List;
 

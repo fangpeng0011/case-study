@@ -1,4 +1,4 @@
-package com.cast.springbootelasticsearch.constants;
+package com.project.springbootelasticsearch.constants;
 
 public class HotelMqConstants {
     public static final String EXCHANGE_NAME = "hotel.topic";

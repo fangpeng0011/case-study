@@ -1,4 +1,4 @@
-package com.cast.springbootelasticsearch.entity;
+package com.project.springbootelasticsearch.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

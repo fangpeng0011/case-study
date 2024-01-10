@@ -1,13 +1,12 @@
-package com.cast.springbootelasticsearch.controller;
+package com.project.springbootelasticsearch.controller;
 
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cast.springbootelasticsearch.entity.Hotel;
-import com.cast.springbootelasticsearch.entity.PageResult;
-import com.cast.springbootelasticsearch.service.IHotelService;
+import com.project.springbootelasticsearch.entity.Hotel;
+import com.project.springbootelasticsearch.entity.PageResult;
+import com.project.springbootelasticsearch.service.IHotelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.InvalidParameterException;

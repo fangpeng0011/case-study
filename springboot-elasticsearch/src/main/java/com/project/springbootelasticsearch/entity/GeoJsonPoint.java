@@ -1,4 +1,4 @@
-package com.cast.springbootelasticsearch.entity;
+package com.project.springbootelasticsearch.entity;
 
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;

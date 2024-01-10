@@ -1,6 +1,6 @@
-package com.cast.springbootelasticsearch.repository;
+package com.project.springbootelasticsearch.repository;
 
-import com.cast.springbootelasticsearch.entity.Goods;
+import com.project.springbootelasticsearch.entity.Goods;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
