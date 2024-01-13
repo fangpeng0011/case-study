@@ -1,4 +1,4 @@
-package com.project.thread;
+package com.project.thread.runnable;
 
 /**
  *     实现多线程方式二：实现Runnable接口【应用】

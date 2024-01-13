@@ -1,6 +1,4 @@
-package com.project.thread;
-
-import java.util.Date;
+package com.project.thread.thread;
 
 public class ThreadDemo3 {
     public static void main(String[] args) {

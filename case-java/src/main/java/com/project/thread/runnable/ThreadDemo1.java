@@ -1,4 +1,4 @@
-package com.project.thread;
+package com.project.thread.runnable;
 
 
 /**
