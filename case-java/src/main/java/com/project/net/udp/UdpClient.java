@@ -26,7 +26,7 @@ public class UdpClient {
             throw new RuntimeException(e);
         } finally {
             //关闭接收端
-//        ds.close();
+            ds.close();
         }
 
 

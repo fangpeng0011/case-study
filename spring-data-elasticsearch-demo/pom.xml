@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>com.project</groupId>
-    <artifactId>springboot-elasticsearch</artifactId>
+    <artifactId>spring-data-elasticsearch-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-elasticsearch</name>
-    <description>springboot-elasticsearch</description>
+    <name>spring-data-elasticsearch-demo</name>
+    <description>spring-data-elasticsearch-demo</description>
 
     <properties>
         <java.version>1.8</java.version>
